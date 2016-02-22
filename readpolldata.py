@@ -16,6 +16,9 @@ statemap = { 'AL': 'Alabama', 'AK': 'Alaska', 'AR': 'Arkansas', 'GA': 'Georgia',
 def main():
     if (len(sys.argv) == 2):
         inputfile = sys.argv[1]
+    elif (len(sys.argv) == 3):
+        option = sys.argv[2]
+        inputfile = sys.argv[2]
     else:
         print("usage: <program> inputfile")
         sys.exit()
