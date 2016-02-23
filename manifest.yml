@@ -1,5 +1,7 @@
-Applications:
+applications:
 - name: delegatecount
+  host: delegatecount
+  domain: mybluemix.net
   memory: 512M
-  command: sh run.sh
-  buildpack:  https://github.com/cloudfoundry/python-buildpack
+  buildpack: https://github.com/cloudfoundry/python-buildpack
+  command: sh ./run.sh
