@@ -1,0 +1,5 @@
+Applications:
+- name: delegatecount
+  memory: 512M
+  command: sh run.sh
+  buildpack:  https://github.com/cloudfoundry/python-buildpack
