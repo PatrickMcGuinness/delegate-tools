@@ -52,6 +52,48 @@ def read_pollrows(inputlines):
                 CandPoll[pollarea] = {pollkey[i]:polldata[i] for i in xrange(len(pollkey))}
     return CandPoll
 
+
+    # Make CandPoll a dictionary of polls, for each state and CD
+    # Texas, TexasCD1, etc.  TexasCD1: { "Carson":0.08, "Cruz":0.05} etc.
+    # Our 'standard' format:
+    # Location, Date, n, Bush, Carson, Cruz, Kasich, Rubio, Trump, Und
+    # TNCD9, 18-Feb, 528, 0.09, 0.06, 0.2, 0.08, 0.09, 0.3, 0.15
+def read_polls_standard(inputfile):
+    with open(inputfile) as f:
+        inputlines = [x.strip('\n') for x in f.readlines()]
+        CandPoll = {}
+        #print(inputlines)
+        for linenum, row in enumerate(inputlines):
+            print(row)
+            rowlist = row.split(",")
+            if rowlist[0]=="Location":
+                candlist=[i.strip(" ") for i in rowlist[3:]]
+            else:
+                CandPoll[rowlist[0]] = {candlist[i]:float(rowlist[i+3].strip(" ")) for i in xrange(len(rowlist[3:])-1)}
+        sumpoll=0
+        print("Full state poll results:")
+        for state in CandPoll:
+            print(state, CandPoll[state])
+        print(CandPoll)
+    return candlist, CandPoll
+
+def read_polls_basic(inputfile):
+    with open(inputfile) as f:
+        inputlines = [x.strip('\n') for x in f.readlines()]
+        CandPoll = {}
+        for linenum, row in enumerate(inputlines):
+            #print row
+            (cand, poll) = row.split(",")
+            pollnum = float(poll)
+            CandPoll[cand] = pollnum
+        sumpoll=0
+        print("Basic poll result:")
+        for cand in CandPoll:
+            print(cand, CandPoll[cand]*100, "%, ")
+            sumpoll +=CandPoll[cand]
+        print("  Sum:", sumpoll)
+    return CandPoll
+'''
 def main():
     if (len(sys.argv) == 2):
         inputfile = sys.argv[1]
@@ -68,3 +110,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+'''
