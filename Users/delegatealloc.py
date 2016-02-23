@@ -3,7 +3,7 @@ import sys
 import curses
 from operator import itemgetter
 from delegaterules import *
-from readpolldata import *
+#from readpolldata import *
 
 statemap = { 'AL': 'Alabama', 'AK': 'Alaska', 'AR': 'Arkansas', 'GA': 'Georgia',
              'HI': 'Hawaii', 'ID': 'Idaho', 'KS': 'Kansas',
