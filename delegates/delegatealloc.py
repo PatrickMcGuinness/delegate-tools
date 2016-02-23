@@ -26,19 +26,21 @@ def main():
     delswon=[]
     for state in statemap:
         if state in allPolls:
-            state_polls=[]
+            state_polls={}
             for loc in allPolls:   # can be either state (VA) or CD, ie MNCD3
                 if state in loc:
-                    state_polls.append(allPolls[loc])
-            print state, delegaterule[state]
+                    state_polls[loc]=allPolls[loc]
+            # print state, delegaterule[state]
             # find all the polls matching StateCD
             delswon.append(votes.alloc_delegates(state, delegaterule[state], allPolls[state],
                             delegatecdrule[state],  state_polls))
         print "done with", state
     Sum = {i:0 for i in cand_list}
-    for result in delswon:
-        for cand in result:
-            Sum[cand] += int(result[cand])
+    for stateres in delswon:
+        for result in stateres:
+            for cand in stateres[result]:
+                Sum[cand] += int(stateres[result][cand])
+    print delswon
     print "SEC primary result total:", Sum
     return
 
@@ -102,8 +104,8 @@ class Delegates():
             for i in range(alloc_split):
                 DelList[cand[i]] = round((poll[i] / pollsum) * total_dels)
                 sumdels += round((poll[i] / pollsum) * total_dels)
-                print i, cand[i], poll[i], DelList[cand[i]],sumdels, pollsum,
-                print round((poll[i] / pollsum) * total_dels), topbonus
+                #print i, cand[i], poll[i], DelList[cand[i]],sumdels, pollsum,
+                # print round((poll[i] / pollsum) * total_dels), topbonus
             remainingdels = int(total_dels - sumdels)
             DelList[cand[0]] += topbonus
             for i in range(remainingdels):
@@ -118,20 +120,23 @@ class Delegates():
         print "\nState of", state_rule['state'], "delegates:", num_cds * cd_rule['numdelegates'], "delegates in CDs and", state_rule['numdelegates'], "at-large delegates,",
         print num_cds * cd_rule['numdelegates'] + state_rule['numdelegates'], "total delegates."
         # state delegate allocations
+        print pollorder
         delswon = self.delegate_alloc(state_rule, pollorder)
         delslist[state_code]=delswon
 
         # Do we allocate by CDs?
         if state_rule['allocbycd']==True:
             print "Alloc by CD for ", num_cds, "districts"
-            for i in range(num_cds):
+            for i in range(1,num_cds+1):
                 loc = state_code + "CD" + str(i)
                 if loc in state_polls:
+                    print loc, 'found in state poll'
                     cdpollorder = sorted(state_polls[loc].items(), key=itemgetter(1), reverse=True)
                 else:   # use statewide poll if there is no CD poll
+                    print "no CD poll found for", loc, "in", state_polls
                     cdpollorder = pollorder
+                print cdpollorder
                 delswon = self.delegate_alloc(cd_rule, cdpollorder)
-                print loc, delswon
                 delslist[loc]=delswon
         else:
             print "No allocation by CD for", state_rule['state']
@@ -142,7 +147,7 @@ class Delegates():
             for cand in delslist[result]:
                 Sum[cand] += delslist[result][cand]
         print state_rule['state'], "delegates awarded:", Sum
-        return Sum
+        return delslist
 
 
 if __name__ == '__main__':

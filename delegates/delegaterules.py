@@ -164,6 +164,40 @@ delegatecdrule['WY'] = {'state': 'Wyoming', 'wta': 0.50, 'propthresh': 0.15, 'mi
 delegaterule['WY'] = {'state': 'Wyoming', 'wta': 0.50, 'propthresh': 0.15,
                 'toptwothresh': 0.99, 'numdelegates': 59, 'minthreshsplit': 1,
                 'allocbycd' : False}
+delegatecdrule['MS'] = {'state': 'Mississippi', 'wta': 0.50, 'propthresh': 0.2,
+              'toptwothresh': 0.2, 'numdelegates': 3, 'minthreshsplit': 1, 'numdistricts': 4}
+delegaterule['MS'] = {'state': 'Mississippi', 'wta': 0.99, 'wtathresh': 0.50,
+                 'propthresh': 0.15, 'toptwothresh': 0.99, 'numdelegates': 28, 'minthreshsplit': 1,
+                 'allocbycd' : True}
+delegatecdrule['MO'] = {'state': 'Missouri', 'wta': 0.01, 'propthresh': 0.01,
+              'toptwothresh': 0.2, 'numdelegates': 5, 'minthreshsplit': 1, 'numdistricts': 8}
+delegaterule['MO'] = {'state': 'Missouri', 'wta': 0.01, 'wtathresh': 0.50,
+                 'propthresh': 0.15, 'toptwothresh': 0.99, 'numdelegates': 12, 'minthreshsplit': 1,
+                 'allocbycd' : True}
+delegatecdrule['FL'] = {'state': 'Florida', 'wta': 0.5, 'propthresh': 0.2,
+              'toptwothresh': 0.2, 'numdelegates': 0, 'minthreshsplit': 2, 'numdistricts': 0}
+delegaterule['FL'] = {'state': 'Florida', 'wta': 0.01, 'propthresh': 0.01,
+                 'toptwothresh': 0.2, 'numdelegates': 99, 'minthreshsplit': 1,
+                 'allocbycd' : False}
+delegatecdrule['IL'] = {'state': 'Illinois', 'wta': 0.01, 'propthresh': 0.01,
+              'toptwothresh': 0.2, 'numdelegates': 3, 'minthreshsplit': 1, 'numdistricts': 18}
+delegaterule['IL'] = {'state': 'Illinois', 'wta': 0.01, 'wtathresh': 0.50,
+                 'propthresh': 0.15, 'toptwothresh': 0.99, 'numdelegates': 13, 'minthreshsplit': 1,
+                 'allocbycd' : True}
+delegatecdrule['NC'] = {'state': 'North Carolina', 'wta': 0.99, 'propthresh': 0.2,
+              'toptwothresh': 0.2, 'numdelegates': 0, 'minthreshsplit': 2, 'numdistricts': 0}
+delegaterule['NC'] = {'state': 'North Carolina', 'wta': 0.99, 'propthresh': 0.01,
+                 'toptwothresh': 0.99, 'numdelegates': 72, 'minthreshsplit': 1,
+                 'allocbycd' : False}
+delegatecdrule['MP'] = {'state': 'Northern Marianas', 'wta': 0.99, 'propthresh': 0.2,
+              'toptwothresh': 0.2, 'numdelegates': 0, 'minthreshsplit': 2, 'numdistricts': 0}
+delegaterule['MP'] = {'state': 'Northern Marianas', 'wta': 0.01, 'propthresh': 0.01,
+                 'toptwothresh': 0.99, 'numdelegates': 9, 'minthreshsplit': 1,
+                 'allocbycd' : False}
+delegatecdrule['OH'] = {'state': 'Ohio'}
+delegaterule['OH'] = {'state': 'Ohio', 'wta': 0.01, 'propthresh': 0.01,
+                 'toptwothresh': 0.2, 'numdelegates': 66, 'minthreshsplit': 1,
+                 'allocbycd' : False}
 
 
 #ignoring rules about if nobody gets 20%, assuming someone will get 20%
