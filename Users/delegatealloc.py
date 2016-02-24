@@ -82,12 +82,17 @@ class Delegates():
             return DelList
 
 #CandPoll is a state poll
-    def alloc_delegates(self, state_code, state_rule, statewide_poll, cd_rule, state_polls ):
+    def alloc_delegates(self, state_code, state_rule, statewide_poll, cd_rule, state_polls):
         delslist = {}
         pollorder = sorted(statewide_poll.items(), key=itemgetter(1), reverse=True)
-        num_cds = cd_rule['numdistricts']
-        print "\nState of", state_rule['state'], "delegates:", num_cds * cd_rule['numdelegates'], "delegates in CDs and", state_rule['numdelegates'], "at-large delegates,",
-        print num_cds * cd_rule['numdelegates'] + state_rule['numdelegates'], "total delegates."
+        if state_rule['allocbycd'] == True:
+            num_cds = cd_rule['numdistricts']
+            dels_per_cd = cd_rule['numdelegates']
+            cd_dels = dels_per_cd * num_cds
+        else:
+            cd_dels = num_cds = dels_per_cd = 0
+        print "\nState of", state_rule['state'], "delegates:", cd_dels , "delegates in CDs and", state_rule['numdelegates'], "at-large delegates,",
+        print  cd_dels + state_rule['numdelegates'], "total delegates."
         # state delegate allocations
         print pollorder
         delswon = self.delegate_alloc(state_rule, pollorder)
@@ -112,7 +117,7 @@ class Delegates():
         print delslist
         Sum = {i:0 for i in statewide_poll}
         for result in delslist:
-            print result
+            #print result
             for cand in delslist[result]:
                 Sum[cand] += delslist[result][cand]
         print state_rule['state'], "delegates awarded:", Sum
