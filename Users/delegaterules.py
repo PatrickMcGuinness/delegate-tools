@@ -177,16 +177,12 @@ delegaterule['OH'] = {'state': 'Ohio', 'wta': 0.01, 'propthresh': 0.01,
                  'toptwothresh': 0.2, 'numdelegates': 66, 'minthreshsplit': 1,
                  'allocbycd' : False}
 delegatecdrule['OH'] = {'state': 'Ohio'}
-
-
 # March 19, 2016 (9 bound delegates)
 #    U.S. Virgin Islands (9) Winner take all
 delegaterule['VI'] = {'state': 'US Virgin Islands', 'wta': 0.01, 'propthresh': 0.01,
                  'toptwothresh': 0.99, 'numdelegates': 9, 'minthreshsplit': 1,
                  'allocbycd' : False}
 delegatecdrule['VI'] = {'state': 'US Virgin Islands'}
-
-
 #March 22, 2016 (107 bound delegates)
 #    American Samoa Convention (9) Delegates elected and bound at convention
 delegaterule['AS'] = {'state': 'American Samoa', 'wta': 0.01, 'propthresh': 0.01,
@@ -203,3 +199,109 @@ delegaterule['UT'] = {'state': 'Utah', 'wta': 0.50, 'propthresh': 0.15,
                  'toptwothresh': 0.15, 'numdelegates': 40, 'minthreshsplit': 1,
                  'allocbycd' : False}
 delegatecdrule['UT'] = {'state': 'Utah'}
+
+# April 5, 2016 (42 bound)
+# Wisconsin Primary (42) Winner take all statewide and by congressional district
+delegaterule['WI'] = {'state': 'Wisconsin', 'wta': 0.01,
+                 'propthresh': 0.15, 'toptwothresh': 0.99, 'numdelegates': 18, 'minthreshsplit': 1,
+                 'allocbycd' : True}
+delegatecdrule['WI'] = {'state': 'Wisconsin', 'wta': 0.01, 'propthresh': 0.01,
+              'toptwothresh': 0.2, 'numdelegates': 3, 'minthreshsplit': 1, 'numdistricts': 8}
+# April 9, 2016 - Colorado Convention (37/0) Delegates elected at district and state conventions, and bound as they declare
+
+# April 19, 2016 - New York Primary (95/92) Proportional with 20% threshold
+delegaterule['NY'] = {'state': 'New York', 'wta': 0.5,
+                 'propthresh': 0.15, 'toptwothresh': 0.99, 'numdelegates': 14, 'minthreshsplit': 1,
+                 'allocbycd' : True}
+delegatecdrule['NY'] = {'state': 'New York', 'wta': 0.5, 'propthresh': 0.2,
+              'toptwothresh': 0.2, 'numdelegates': 3, 'minthreshsplit': 1, 'numdistricts': 27}
+# Northeast Primary: April 26, 2016 (109 bound)
+# Connecticut Primary (28/25) Winner take all above 50%, otherwise proportional with 20% threshold statewide, winner take all by congressional district
+delegaterule['CT'] = {'state': 'Connecticut', 'wta': 0.5,
+                 'propthresh': 0.15, 'toptwothresh': 0.99, 'numdelegates': 13, 'minthreshsplit': 1,
+                 'allocbycd' : True}
+delegatecdrule['CT'] = {'state': 'Connecticut', 'wta': 0.5, 'propthresh': 0.2,
+              'toptwothresh': 0.2, 'numdelegates': 3, 'minthreshsplit': 1, 'numdistricts': 5}
+# Delaware Primary (16) Winner take all
+delegaterule['DE'] = {'state': 'Delaware', 'wta': 0.01, 'propthresh': 0.01,
+                 'toptwothresh': 0.2, 'numdelegates': 16, 'minthreshsplit': 1,
+                 'allocbycd' : False}
+delegatecdrule['DE'] = {'state': 'Delaware'}
+# Maryland Primary (38)  WTA
+delegaterule['MD'] = {'state': 'Maryland', 'wta': 0.01, 'propthresh': 0.01,
+                 'toptwothresh': 0.2, 'numdelegates': 14, 'minthreshsplit': 1,
+                 'allocbycd' : True}
+delegatecdrule['MD'] = {'state': 'Maryland', 'wta': 0.01, 'propthresh': 0.2,
+              'toptwothresh': 0.2, 'numdelegates': 3, 'minthreshsplit': 1, 'numdistricts': 8}
+# Pennsylvania Primary (71/14) WTA statewide, remaining delegates elected on ballot and unbound
+delegaterule['PA'] = {'state': 'Pennsylvania', 'wta': 0.01, 'propthresh': 0.01,
+                 'toptwothresh': 0.2, 'numdelegates': 17, 'minthreshsplit': 1,
+                 'allocbycd' : True}
+delegatecdrule['PA'] = {'state': 'Pennsylvania', 'wta': 0.01, 'propthresh': 0.01,
+              'toptwothresh': 0.2, 'numdelegates': 3, 'minthreshsplit': 1, 'numdistricts': 18}
+# Rhode Island Primary (19/16) Proportional with 10% threshold
+# CD rules are a 1-1-1 split in a 3-way race. alloc_split not used in CDs.
+delegaterule['RI'] = {'state': 'Rhode Island', 'wta': 0.99,
+                 'propthresh': 0.1, 'toptwothresh': 0.1, 'numdelegates': 13, 'minthreshsplit': 1,
+                 'allocbycd' : True}
+delegatecdrule['RI'] = {'state': 'Rhode Island', 'wta': 0.5, 'propthresh': 0.1,
+              'toptwothresh': 0.9, 'numdelegates': 3, 'minthreshsplit': 3, 'numdistricts': 2}
+# May 3, 2016 - Indiana Primary (57/54) Winner take all statewide and by congressional district
+delegaterule['IN'] = {'state': 'Indiana', 'wta': 0.01, 'propthresh': 0.01,
+                 'toptwothresh': 0.2, 'numdelegates': 30, 'minthreshsplit': 1,
+                 'allocbycd' : True}
+delegatecdrule['IN'] = {'state': 'Indiana', 'wta': 0.01, 'propthresh': 0.01,
+              'toptwothresh': 0.2, 'numdelegates': 3, 'minthreshsplit': 1, 'numdistricts': 9}
+# May 10, 2016 (67 bound)
+# Nebraska Primary (36) Winner take all
+delegaterule['NE'] = {'state': 'Nebraska', 'wta': 0.01, 'propthresh': 0.01,
+                 'toptwothresh': 0.2, 'numdelegates': 36, 'minthreshsplit': 1,
+                 'allocbycd' : False}
+delegatecdrule['NE'] = {'state': 'Nebraska'}
+# West Virginia Primary (34/31) Delegates elected directly on ballot and bound by preference (like WTA)
+delegaterule['WV'] = {'state': 'West Virginia', 'wta': 0.01, 'propthresh': 0.01,
+                 'toptwothresh': 0.2, 'numdelegates': 22, 'minthreshsplit': 1,
+                 'allocbycd' : True}
+delegatecdrule['WV'] = {'state': 'West Virginia', 'wta': 0.01, 'propthresh': 0.01,
+              'toptwothresh': 0.2, 'numdelegates': 3, 'minthreshsplit': 1, 'numdistricts': 3}
+# May 17, 2016 (25 bound)
+# Oregon Primary (28/25) Proportional
+delegaterule['OR'] = {'state': 'Oregon', 'wta': 0.99,
+                 'propthresh': 0.04, 'toptwothresh': 0.04, 'numdelegates': 28, 'minthreshsplit': 1,
+                 'allocbycd' : False}
+delegatecdrule['OR'] = {'state': 'Oregon'}
+# May 27, 2016 (41 bound)
+# Washington Primary (44/41) Proportional with 20% threshold. CD rules are 3-way split if 3 above 20%
+delegaterule['WA'] = {'state': 'Washington', 'wta': 0.99, 'propthresh': 0.2,
+                 'toptwothresh': 0.2, 'numdelegates': 14, 'minthreshsplit': 2,
+                 'allocbycd' : True}
+delegatecdrule['WA'] = {'state': 'Washington', 'wta': 0.5, 'propthresh': 0.2,
+              'toptwothresh': 0.2, 'numdelegates': 3, 'minthreshsplit': 2, 'numdistricts': 10}
+# Last Call: June 7, 2016 (294 bound)
+# California Primary (172/169) Winner take all statewide and by congressional district
+delegaterule['CA'] = {'state': 'California', 'wta': 0.01, 'propthresh': 0.01,
+                 'toptwothresh': 0.2, 'numdelegates': 13, 'minthreshsplit': 1,
+                 'allocbycd' : True}
+delegatecdrule['CA'] = {'state': 'California', 'wta': 0.01, 'propthresh': 0.01,
+              'toptwothresh': 0.2, 'numdelegates': 3, 'minthreshsplit': 1, 'numdistricts': 53}
+# Montana Primary (27) Winner take all
+delegaterule['NE'] = {'state': 'Nebraska', 'wta': 0.01, 'propthresh': 0.01,
+                 'toptwothresh': 0.2, 'numdelegates': 36, 'minthreshsplit': 1,
+                 'allocbycd' : False}
+delegatecdrule['NE'] = {'state': 'Nebraska'}
+
+# New Jersey Primary (51) Winner take all
+delegaterule['NJ'] = {'state': 'New Jersey', 'wta': 0.01, 'propthresh': 0.01,
+                 'toptwothresh': 0.2, 'numdelegates': 51, 'minthreshsplit': 1,
+                 'allocbycd' : False}
+delegatecdrule['NJ'] = {'state': 'New Jersey'}
+# New Mexico Primary (24/21) Proportional with 15% threshold
+delegaterule['NM'] = {'state': 'New Mexico', 'wta': 0.99,
+                 'propthresh': 0.15, 'toptwothresh': 0.15, 'numdelegates': 24, 'minthreshsplit': 1,
+                 'allocbycd' : False}
+delegatecdrule['NM'] = {'state': 'New Mexico'}
+# South Dakota Primary (29/26) Winner take all
+delegaterule['SD'] = {'state': 'South Dakota', 'wta': 0.01, 'propthresh': 0.01,
+                 'toptwothresh': 0.2, 'numdelegates': 29, 'minthreshsplit': 1,
+                 'allocbycd' : False}
+delegatecdrule['SD'] = {'state': 'South Dakota'}

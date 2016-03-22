@@ -50,7 +50,7 @@ class Delegates():
         if poll[0] > rules['wta']:
             DelList[cand[0]] = total_dels
             return DelList
-        if total_dels == 3:   # CD rules
+        if total_dels == 3:   # CD rules - hard-coded to a 2-1 split
             if num_above_thresh > 0:
                 DelList[cand[0]] = 2 * total_dels / 3
                 DelList[cand[1]] = total_dels / 3
