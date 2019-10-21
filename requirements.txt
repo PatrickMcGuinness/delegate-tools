@@ -1,5 +1,5 @@
 Django==1.8.5
-djangorestframework==3.2.4
+djangorestframework==3.9.1
 djangorestframework-jwt==1.7.2
 gunicorn==19.3.0
 jsonfield==1.0.3
