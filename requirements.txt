@@ -1,4 +1,4 @@
-Django==1.8.5
+Django==2.2.24
 djangorestframework==3.2.4
 djangorestframework-jwt==1.7.2
 gunicorn==19.3.0
